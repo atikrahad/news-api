@@ -14,14 +14,14 @@ const putdata = (res) => {
     console.log(element);
     const div = document.createElement("div");
     div.innerHTML = `
-    <button onclick="catagoryItem('${element.category_id}')">${element.category_name}</button>
+    <button id="clickCat" onclick="catagoryItem('${element.category_id}')">${element.category_name}</button>
     `;
     parent.appendChild(div);
   });
 };
 
 const catagoryItem = async (id) => {
-  console.log(id);
+  
 
   const res = await fetch(
     `https://openapi.programming-hero.com/api/news/category/${id}`
@@ -80,3 +80,5 @@ const getData = (data) => {
   });
 };
 catagoryHandler();
+
+catagoryItem('01')
